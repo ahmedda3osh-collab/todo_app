@@ -1,5 +1,7 @@
 
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:todo_app/core/theme/app_text_style.dart';
@@ -18,9 +20,15 @@ class _AuthScreenState extends State<AuthScreen> {
     XFile? image;
   void pickFromGallery()async{
    image = await picker.pickImage(source: ImageSource.gallery);
+   setState(() {
+     
+   });
   }
   void pickFromCamera()async{
     image = await picker.pickImage(source: ImageSource.camera);
+    setState(() {
+      
+    });
   }
   @override
   Widget build(BuildContext context) {
@@ -64,7 +72,8 @@ class _AuthScreenState extends State<AuthScreen> {
                 child: CircleAvatar(
                 radius: 60,
                 backgroundColor: Colors.grey.shade300,
-                child: Icon(Icons.person, size: 60,),
+                child:image!=null?null: Icon(Icons.person, size: 60,),
+                backgroundImage:image!=null? Image.file(File(image?.path??"")).image:null,
                 ),
               ),
               SizedBox(height: 25,),
