@@ -2,11 +2,12 @@ splash screen
 
 
 
-<img width="720" height="1600" alt="Screenshot_٢٠٢٦٠٧١١-٢٣٣٧٤٠" src="https://github.com/user-attachments/assets/9f67c20c-9a22-4ad0-ab85-c140d55a1890" />
+<img width="720" height="1600" alt="Screenshot_٢٠٢٦٠٧١١-٢٣٥٦٥٧" src="https://github.com/user-attachments/assets/7ee3d038-492a-47b2-afb9-15d7f0a65c55" />
 
 
 
 auth screen
 
-<img width="720" height="1600" alt="Screenshot_٢٠٢٦٠٧١١-٢٣٣٧٥٧" src="https://github.com/user-attachments/assets/d16343fa-0884-434a-aff8-9251034a4fbe" />
+<img width="720" height="1600" alt="Screenshot_٢٠٢٦٠٧١١-٢٣٥٧٥٠" src="https://github.com/user-attachments/assets/11364d1b-d447-4bd1-8ef3-1b235f8119f8" />
+
 
