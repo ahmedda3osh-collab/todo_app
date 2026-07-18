@@ -1,8 +1,12 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:lottie/lottie.dart';
-import 'package:todo_app/features/auth/ui/auth_screen.dart';
+import 'package:todo_app/core/utils/app_constant.dart';
+import 'package:todo_app/features/auth/data/models/user_model.dart';
+import 'package:todo_app/features/ui/auth_screen.dart';
+import 'package:todo_app/features/ui/home_screen.dart';
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -19,7 +23,14 @@ class _SplashScreenState extends State<SplashScreen> {
     });
     super.initState();
   }
-
+Widget nextRoute(){
+ 
+  if(Hive.box<UserModel>(AppConstant.userBox).isEmpty){
+    return AuthScreen();
+  }else{
+    return HomeScreen();
+  }
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
