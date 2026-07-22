@@ -10,7 +10,7 @@ import 'package:todo_app/core/utils/app_constant.dart';
 import 'package:todo_app/core/widgets/app_button.dart';
 import 'package:todo_app/core/widgets/custom_text_field.dart';
 import 'package:todo_app/features/auth/data/models/user_model.dart';
-import 'package:todo_app/features/ui/home_screen.dart';
+import 'package:todo_app/features/home_screen/ui/home_screen.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -36,6 +36,12 @@ class _AuthScreenState extends State<AuthScreen> {
   }
   var formKey = GlobalKey<FormState>();
   var nameController = TextEditingController();
+    @override
+  void dispose() {
+    nameController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,9 +101,21 @@ class _AuthScreenState extends State<AuthScreen> {
                 SizedBox(height: 10),
                 CustomTextField(
                   controller: nameController,
+                  title: "Full Name",
+                  hintText: "Enter your name",
+                  validator: (v){
+              if(v==null || v.isEmpty){
+                return "Please enter your name";
+              }else if(v.length<3){
+                return "Name must be at least 3 characters";
+              }
+              return null;
+
+            },
                 ),
                 SizedBox(height: 20,),
                 AppButton(
+                  title: "Continue",
                   onTap: (){
                     if(image==null){
                       showDialog(

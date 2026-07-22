@@ -5,35 +5,45 @@ import 'package:todo_app/core/theme/app_text_style.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController? controller ;
-  const CustomTextField({super.key,  this.controller });
+  final String title;
+  final String? Function(String?)? validator;
+  final String? hintText ;
+  final int? maxLines;
+  final bool? readOnly; 
+  final void Function()? onTap;
+
+  const CustomTextField({
+    super.key, 
+   this.controller,
+    required this.title,
+     this.validator,
+       this.hintText,
+       this.maxLines,
+        this.readOnly, 
+        this.onTap });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Full name",
+        Text(title,
           style: AppTextStyle.headLineStyle,
           ),
           SizedBox(height: 10,),
           TextFormField(
+            maxLines :maxLines,
+            readOnly: readOnly??false,
+            onTap: onTap,
             controller: controller,
             onTapOutside: (v){
               FocusScope.of(context).unfocus();
             },
-            validator:(v){
-              if(v==null || v.isEmpty){
-                return "Please enter your name";
-              }else if(v.length<3){
-                return "Name must be at least 3 characters";
-              }
-              return null;
-
-            },
+            validator:validator,
             decoration: InputDecoration(
               fillColor: Colors.grey.shade300,
               filled: true,
-              hintText: "Enter your name",
+              hintText: hintText,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20),
                 borderSide: BorderSide.none
